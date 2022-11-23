@@ -1,0 +1,29 @@
+{
+  "name": "root",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "lint": "prettier \"**/*.{js,ts,md,mjs,cjs,json}\"",
+    "format": "pnpm run lint --write",
+    "build": "pnpm -r run build",
+    "test": "pnpm -r test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kevinzunigacuellar/remark-code-title",
+    "directory": "packages/remark-code-title"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kevinzunigacuellar/remark-code-title/issues"
+  },
+  "homepage": "https://github.com/kevinzunigacuellar/remark-code-title#readme",
+  "devDependencies": {
+    "prettier": "^2.7.1"
+  },
+  "dependencies": {
+    "@changesets/changelog-github": "^0.4.7",
+    "@changesets/cli": "^2.25.2"
+  }
+}
