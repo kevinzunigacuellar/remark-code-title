@@ -2,7 +2,7 @@ import { test, expect } from "vitest";
 import plugin from "../src/index";
 import { remark } from "remark";
 
-test("adds a div containing the title before the code node", async () => {
+test("adds a div containing the title before a code node", async () => {
   const md = `
   # Some title
   
