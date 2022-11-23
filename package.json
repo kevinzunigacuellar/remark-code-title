@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "prettier \"**/*.{js,ts,md,mjs,cjs,json}\"",
     "format": "pnpm run lint --write",
-    "build": "pnpm -r run build",
+    "build": "pnpm --filter './packages/**' run build",
     "test": "pnpm -r test"
   },
   "repository": {
