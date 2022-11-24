@@ -20,7 +20,7 @@ export const remarkCodeTitle: unified.Plugin<[], mdast.Root> = () => {
           value: `<div class="remark-code-title">${title}</div>`,
         };
 
-        if (parent && parent.children && index) {
+        if (parent && parent.children && typeof index === "number") {
           parent.children.splice(index, 0, titleNode);
           return index + 2;
         }
