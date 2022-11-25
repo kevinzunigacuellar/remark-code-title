@@ -3,28 +3,41 @@ import type * as mdast from "mdast";
 import type * as unified from "unified";
 
 export const remarkCodeTitle: unified.Plugin<[], mdast.Root> = () => {
-  return (tree) => {
-    {
-      visit(tree, "code", (node, index, parent) => {
-        if (!node.meta) return;
-        const [title] = node.meta.match(/(?<=title=("|'))(.*?)(?=("|'))/) ?? "";
-        if (!title) {
-          if (/\stitle/.test(node.meta))
-            console.warn(
-              `remark-code-title: title attribute could not be parsed from meta string: ${node.meta}. Please use title="title" format.`
-            );
-          return;
-        }
-        const titleNode: mdast.HTML = {
-          type: "html",
-          value: `<div class="remark-code-title">${title}</div>`,
-        };
+  return (tree, file) => {
+    visit(tree, "code", (node, index, parent) => {
+      const metaString = `${node.lang ?? ""} ${node.meta ?? ""}`.trim();
+      /* meta string is empty */
+      if (!metaString) return;
 
-        if (parent && parent.children && typeof index === "number") {
-          parent.children.splice(index, 0, titleNode);
-          return index + 2;
+      /* when no language is specified but there is a meta string, 
+         by default node.lang has the node.meta value (considering there is not spaces) 
+      */
+
+      if (node.lang && node.lang.includes("title=")) {
+        node.meta = metaString;
+        node.lang = "plaintext";
+      }
+
+      const [title] = metaString.match(/(?<=title=("|'))(.*?)(?=("|'))/) ?? "";
+
+      if (!title) {
+        if (metaString.includes("title=")) {
+          file.message("Invalid title", node, "remark-code-title");
         }
-      });
-    }
+        return;
+      }
+
+      const titleNode: mdast.HTML = {
+        type: "html",
+        value: `<div data-remark-code-title data-language="${
+          node.lang ?? "plaintext"
+        }">${title}</div>`,
+      };
+
+      if (parent && parent.children && typeof index === "number") {
+        parent.children.splice(index, 0, titleNode);
+        return index + 2;
+      }
+    });
   };
 };

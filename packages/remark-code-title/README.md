@@ -6,6 +6,9 @@ Inspired by:
 
 - [gatsby-remark-code-titles](https://github.com/DSchau/gatsby-remark-code-titles)
 - [remark-code-titles](https://github.com/mottox2/remark-code-titles)
+  - Fixed the issue not working in nested code blocks
+  - Switched from class to data attribute for styling
+  - Added support for code blocks with no language specified
 
 ## Installation
 
@@ -42,7 +45,7 @@ Running `node example.js` yields:
 ````markdown
 # Example
 
-<div class="remark-code-title">hello.js</div>
+<div data-remark-code-title>hello.js</div>
 
 ```js title="example.js"
 console.log("Hello World");
