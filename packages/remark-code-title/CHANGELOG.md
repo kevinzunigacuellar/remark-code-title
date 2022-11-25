@@ -1,5 +1,11 @@
 # remark-code-title
 
+## 0.1.0
+
+### Minor Changes
+
+- 18d0df8: Switch class attribute to data attribute.
+
 ## 0.0.2
 
 ### Patch Changes
