@@ -18,10 +18,16 @@ export const remarkCodeTitle: unified.Plugin<[], mdast.Root> = () => {
       /* 
         In the HTML output, the title will be rendered as a <div> tag.
        */
-      const titleNode : mdast.Paragraph = {
-        type: 'paragraph',
-        data: {hName: 'div', hProperties: {'data-remark-code-title': true, 'data-language': node.lang}},
-        children: [{type: 'text', value: title}]
+      const titleNode: mdast.Paragraph = {
+        type: "paragraph",
+        data: {
+          hName: "div",
+          hProperties: {
+            "data-remark-code-title": true,
+            "data-language": node.lang,
+          },
+        },
+        children: [{ type: "text", value: title }],
       };
 
       if (parent && parent.children && typeof index === "number") {

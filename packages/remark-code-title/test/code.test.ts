@@ -13,7 +13,7 @@ test("adds a title before a code node", async () => {
   
   Some block of text
     `.trim();
-  const processor = remark().use(codeTitle)
+  const processor = remark().use(codeTitle);
   const result = await processor.process(md);
   expect(result.toString()).toContain(`\n${title}\n`);
 });
@@ -33,13 +33,11 @@ test("adds a title before a code node inside a parent node", async () => {
     `.trim();
   const processor = remark().use(codeTitle);
   const result = await processor.process(md);
-  expect(result.toString()).toContain(
-    `> ${title}\n`
-  );
+  expect(result.toString()).toContain(`> ${title}\n`);
 });
 
 test("adds a title before a code node when code block does not have a language", async () => {
-  const title = "hello.js"
+  const title = "hello.js";
   const md = `
   \`\`\`title="${title}"
     console.log("hello world");
@@ -53,7 +51,7 @@ test("adds a title before a code node when code block does not have a language",
 });
 
 test("adds a title before a code node that does not have a language with a two word name", async () => {
-  const title = "Cool title"
+  const title = "Cool title";
   const md = `
   \`\`\`title="${title}"
     console.log("hello world");
