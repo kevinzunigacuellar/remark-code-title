@@ -1,5 +1,5 @@
 import { test, expect } from "vitest";
-import plugin from "../src/index";
+import codeTitle from "../src/index";
 import { remark } from "remark";
 
 test("adds a div containing the title before a code node", async () => {
@@ -12,14 +12,14 @@ test("adds a div containing the title before a code node", async () => {
   
   Some block of text
     `.trim();
-  const processor = remark().use(plugin);
+  const processor = remark().use(codeTitle);
   const result = await processor.process(md);
   expect(result.toString()).toContain(
-    `<div class="remark-code-title">hello.js</div>`
+    "<div data-remark-code-title>hello.js</div>"
   );
 });
 
-test("adds a div containing the title before a code node inside a blockquote", async () => {
+test("adds a div containing the title before a code node inside a parent node", async () => {
   const md = `
   # Some code in a blockquote
 
@@ -28,13 +28,13 @@ test("adds a div containing the title before a code node inside a blockquote", a
   >\`\`\`js title="hello.js"
   >  console.log("hello world");
   >\`\`\`
-  
+
   Some block of text
     `.trim();
-  const processor = remark().use(plugin);
+  const processor = remark().use(codeTitle);
   const result = await processor.process(md);
   expect(result.toString()).toContain(
-    `<div class="remark-code-title">hello.js</div>`
+    `<div data-remark-code-title>hello.js</div>`
   );
 });
 
@@ -43,12 +43,12 @@ test("adds a div containing the title before a code node when its the first item
   \`\`\`js title="hello.js"
     console.log("hello world");
   \`\`\`
-  
+
   Some block of text
     `.trim();
-  const processor = remark().use(plugin);
+  const processor = remark().use(codeTitle);
   const result = await processor.process(md);
   expect(result.toString()).toContain(
-    `<div class="remark-code-title">hello.js</div>`
+    `<div data-remark-code-title>hello.js</div>`
   );
 });
