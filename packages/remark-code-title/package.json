@@ -28,6 +28,11 @@
     "name": "Kevin Zuniga Cuellar",
     "url": "https://twitter.com/kevinzunigacuel"
   },
+  "keywords": [
+    "remark-plugin",
+    "remark",
+    "mdast"
+  ],
   "license": "MIT",
   "devDependencies": {
     "@types/mdast": "^3.0.10",
