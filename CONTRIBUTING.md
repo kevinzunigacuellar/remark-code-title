@@ -39,7 +39,7 @@ pnpm run format
 
 ### Making a Pull Request
 
-When making a pull request, be sure to add a changeset when something has changed in the package. 
+When making a pull request, be sure to add a changeset when something has changed in the package.
 
 ```shell
 pnpm changeset
