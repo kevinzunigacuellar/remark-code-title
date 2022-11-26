@@ -1,5 +1,11 @@
 # remark-code-title
 
+## 0.2.1
+
+### Patch Changes
+
+- c01e387: add support for cjs and update package.json
+
 ## 0.2.0
 
 ### Minor Changes
