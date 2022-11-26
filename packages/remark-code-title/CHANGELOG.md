@@ -1,5 +1,11 @@
 # remark-code-title
 
+## 0.2.0
+
+### Minor Changes
+
+- 343f4af: replace injected html node for p element as div
+
 ## 0.1.0
 
 ### Minor Changes
