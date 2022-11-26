@@ -42,7 +42,7 @@ Running `node example.js` yields:
 ````markdown
 # Example
 
-hello.js
+example.js
 
 ```js title="example.js"
 console.log("Hello World");
