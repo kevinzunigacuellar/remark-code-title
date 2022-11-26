@@ -6,18 +6,7 @@ export const remarkCodeTitle: unified.Plugin<[], mdast.Root> = () => {
   return (tree, file) => {
     visit(tree, "code", (node, index, parent) => {
       const metaString = `${node.lang ?? ""} ${node.meta ?? ""}`.trim();
-      /* meta string is empty */
       if (!metaString) return;
-
-      /* when no language is specified but there is a meta string, 
-         by default node.lang has the node.meta value (considering there is not spaces) 
-      */
-
-      if (node.lang && node.lang.includes("title=")) {
-        node.meta = metaString;
-        node.lang = "plaintext";
-      }
-
       const [title] = metaString.match(/(?<=title=("|'))(.*?)(?=("|'))/) ?? "";
 
       if (!title) {
@@ -26,16 +15,25 @@ export const remarkCodeTitle: unified.Plugin<[], mdast.Root> = () => {
         }
         return;
       }
-
-      const titleNode: mdast.HTML = {
-        type: "html",
-        value: `<div data-remark-code-title data-language="${
-          node.lang ?? "plaintext"
-        }">${title}</div>`,
+      /* 
+        In the HTML output, the title will be rendered as a <div> tag.
+       */
+      const titleNode: mdast.Paragraph = {
+        type: "paragraph",
+        data: {
+          hName: "div",
+          hProperties: {
+            "data-remark-code-title": true,
+            "data-language": node.lang,
+          },
+        },
+        children: [{ type: "text", value: title }],
       };
 
       if (parent && parent.children && typeof index === "number") {
         parent.children.splice(index, 0, titleNode);
+        /* index + 1 causes an infinite loop 
+        because a node is inserted but not removed  */
         return index + 2;
       }
     });
