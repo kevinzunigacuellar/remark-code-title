@@ -1,5 +1,11 @@
 # remark-code-title
 
+## 0.2.2
+
+### Patch Changes
+
+- fc89a01: revert cjs support
+
 ## 0.2.1
 
 ### Patch Changes
