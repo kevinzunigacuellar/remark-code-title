@@ -3,6 +3,7 @@
   "version": "0.2.1",
   "type": "module",
   "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/kevinzunigacuellar/remark-code-title"
@@ -13,17 +14,16 @@
   "homepage": "https://github.com/kevinzunigacuellar/remark-code-title#README",
   "description": "remark plugin to add titles to code blocks",
   "exports": {
-    "default": "./dist/index.js",
-    "import": "./dist/index.js",
-    "require": "./dist/index.cjs"
-  },
+    ".": "./dist/index.js",
+    "./package.json": "./package.json"
+    },
+  
   "files": [
     "dist",
     "CHANGELOG.md"
   ],
-  "types": "./dist/index.d.ts",
   "scripts": {
-    "build": "tsup src/index.ts --format esm,cjs --dts",
+    "build": "tsup src/index.ts --format esm --dts --clean",
     "dev": "vitest",
     "test": "vitest run"
   },
