@@ -7,6 +7,12 @@ Inspired by:
 - [gatsby-remark-code-titles](https://github.com/DSchau/gatsby-remark-code-titles)
 - [remark-code-titles](https://github.com/mottox2/remark-code-titles)
 
+## Demos
+
+| Astro                                                                                                                                              | Next.js                                                                                                                                            |
+| -------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [ ![ Open in StackBlitz ](https://developer.stackblitz.com/img/open_in_stackblitz.svg) ](https://stackblitz.com/edit/github-ahmnpb?file=README.md) | [ ![ Open in StackBlitz ](https://developer.stackblitz.com/img/open_in_stackblitz.svg) ](https://stackblitz.com/edit/github-sf5q11?file=README.md) |
+
 ## Installation
 
 ```bash
@@ -48,9 +54,3 @@ example.js
 console.log("Hello World");
 ```
 ````
-
-### Demos
-
-| Astro                                                                                                                                          |
-| ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/github-ahmnpb?file=README.md) |
