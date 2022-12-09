@@ -1,5 +1,7 @@
 # remark-code-title
 
+<img alt="preview badge" src="https://img.shields.io/npm/dm/remark-code-title?color=informational&logo=npm">
+
 Remark plugin to add a title to code blocks.
 
 Inspired by:
