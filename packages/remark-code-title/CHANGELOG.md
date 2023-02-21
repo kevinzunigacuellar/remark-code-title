@@ -1,5 +1,11 @@
 # remark-code-title
 
+## 0.2.3
+
+### Patch Changes
+
+- a9b0a4e: update readme
+
 ## 0.2.2
 
 ### Patch Changes
