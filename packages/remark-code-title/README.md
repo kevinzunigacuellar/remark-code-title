@@ -7,13 +7,13 @@ Remark plugin to add a title to code blocks.
 Inspired by:
 
 - [gatsby-remark-code-titles](https://github.com/DSchau/gatsby-remark-code-titles)
-- [remark-code-titles](https://github.com/mottox2/remark-code-titles)
+- [remark-code-titles](https://github.com/mottox2/remark-code-titles) [currently not maintained]
 
 ## Demos
 
 | Astro                                                                                                                                              | Next.js                                                                                                                                            |
 | -------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [ ![ Open in StackBlitz ](https://developer.stackblitz.com/img/open_in_stackblitz.svg) ](https://stackblitz.com/edit/github-ahmnpb?file=README.md) | [ ![ Open in StackBlitz ](https://developer.stackblitz.com/img/open_in_stackblitz.svg) ](https://stackblitz.com/edit/github-sf5q11?file=README.md) |
+| [ ![ Open in StackBlitz ](https://developer.stackblitz.com/img/open_in_stackblitz.svg) ](https://stackblitz.com/edit/astro-remark-code-title?file=README.md) | [ ![ Open in StackBlitz ](https://developer.stackblitz.com/img/open_in_stackblitz.svg) ](https://stackblitz.com/edit/github-sf5q11?file=README.md) |
 
 ## Installation
 
