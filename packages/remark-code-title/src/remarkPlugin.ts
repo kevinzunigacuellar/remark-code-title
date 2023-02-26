@@ -8,16 +8,11 @@ export const remarkCodeTitle: unified.Plugin<[], mdast.Root> = () => {
       const metaString = `${node.lang ?? ""} ${node.meta ?? ""}`.trim();
       if (!metaString) return;
       const [title] = metaString.match(/(?<=title=("|'))(.*?)(?=("|'))/) ?? "";
-
-      if (!title) {
-        if (metaString.includes("title=")) {
-          file.message("Invalid title", node, "remark-code-title");
-        }
+      if (!title && metaString.includes("title=")) {
+        file.message("Invalid title", node, "remark-code-title");
         return;
       }
-      /* 
-        In the HTML output, the title will be rendered as a <div> tag.
-       */
+
       const titleNode: mdast.Paragraph = {
         type: "paragraph",
         data: {
@@ -30,12 +25,9 @@ export const remarkCodeTitle: unified.Plugin<[], mdast.Root> = () => {
         children: [{ type: "text", value: title }],
       };
 
-      if (parent && parent.children && typeof index === "number") {
-        parent.children.splice(index, 0, titleNode);
-        /* index + 1 causes an infinite loop 
-        because a node is inserted but not removed  */
-        return index + 2;
-      }
+      parent.children.splice(index, 0, titleNode);
+      /* Skips this node (title) and the next node (code) */
+      return index + 2;
     });
   };
 };
