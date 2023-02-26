@@ -37,10 +37,9 @@ And this script, `example.js`, using `remark-code-title`:
 
 ```js
 import codeTitle from "remark-code-title";
-import html from 'remark-html';
+import html from "remark-html";
 import { read } from "to-vfile";
 import { remark } from "remark";
-
 
 const processor = remark().use(codeTitle).use(html, { sanitize: false });
 const markdown = await read("example.md");
