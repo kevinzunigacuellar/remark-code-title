@@ -1,5 +1,11 @@
 # remark-code-title
 
+## 0.2.4
+
+### Patch Changes
+
+- b2edfcb: remove type guards
+
 ## 0.2.3
 
 ### Patch Changes
