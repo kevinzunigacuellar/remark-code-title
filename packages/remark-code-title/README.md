@@ -11,8 +11,8 @@ Inspired by:
 
 ## Demos
 
-| Astro                                                                                                                                              | Next.js                                                                                                                                            |
-| -------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Astro                                                                                                                                                        | Next.js                                                                                                                                            |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [ ![ Open in StackBlitz ](https://developer.stackblitz.com/img/open_in_stackblitz.svg) ](https://stackblitz.com/edit/astro-remark-code-title?file=README.md) | [ ![ Open in StackBlitz ](https://developer.stackblitz.com/img/open_in_stackblitz.svg) ](https://stackblitz.com/edit/github-sf5q11?file=README.md) |
 
 ## Installation
@@ -37,22 +37,21 @@ And this script, `example.js`, using `remark-code-title`:
 
 ```js
 import codeTitle from "remark-code-title";
+import html from "remark-html";
 import { read } from "to-vfile";
 import { remark } from "remark";
 
-const processor = remark().use(codeTitle);
+const processor = remark().use(codeTitle).use(html, { sanitize: false });
 const markdown = await read("example.md");
 const result = await processor.process(markdown);
 ```
 
 Running `node example.js` yields:
 
-````markdown
-# Example
-
-example.js
-
-```js title="example.js"
-console.log("Hello World");
+```html
+<h1>Example</h1>
+<div data-remark-code-title data-language="js">example.js</div>
+<pre>
+  <code>console.log("Hello World");</code>
+</pre>
 ```
-````
