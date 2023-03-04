@@ -1,5 +1,11 @@
 # remark-code-title
 
+## 0.2.5
+
+### Patch Changes
+
+- 4e74556: fix undefined title bug
+
 ## 0.2.4
 
 ### Patch Changes
