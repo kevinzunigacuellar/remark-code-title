@@ -1,1 +1,1 @@
-C:/packages/remark-code-title/README.md
+/packages/remark-code-title/README.md
