@@ -7,11 +7,12 @@ export const remarkCodeTitle: unified.Plugin<[], mdast.Root> = () => {
     visit(tree, "code", (node, index, parent) => {
       const metaString = `${node.lang ?? ""} ${node.meta ?? ""}`.trim();
       if (!metaString) return;
-      const [title] = metaString.match(/(?<=title=("|'))(.*?)(?=("|'))/) ?? "";
+      const [title] = metaString.match(/(?<=title=("|'))(.*?)(?=("|'))/) ?? [""];
       if (!title && metaString.includes("title=")) {
         file.message("Invalid title", node, "remark-code-title");
         return;
       }
+      if (!title) return;
 
       const titleNode: mdast.Paragraph = {
         type: "paragraph",
