@@ -55,3 +55,69 @@ Running `node example.js` yields:
   <code>console.log("Hello World");</code>
 </pre>
 ```
+
+### Additional options
+
+It is possible to pass parameters to the `codeTitle` plugin.
+
+**Note that** all options can be used at the same time, in any combination, without producing unexpected results.
+
+The parameter structure has the following type:
+
+```ts
+export type Options = {
+  baseName?: string | null | undefined;
+
+  useClassInsteadOfAttribute?: boolean | null | undefined;
+
+  additionalClasses?: string | string[] | null | undefined;
+};
+```
+
+In particular, `useClassInsteadOfAttribute=true` will generate the following HTML, from the previous example:
+
+```html
+<h1>Example</h1>
+<div class="data-remark-code-title" data-language="js">example.js</div>
+<pre>
+  <code>console.log("Hello World");</code>
+</pre>
+```
+
+`baseName="some-other-attribute"` Will generate the following HTML:
+
+```html
+<h1>Example</h1>
+<div some-other-attribute data-language="js">example.js</div>
+<pre>
+  <code>console.log("Hello World");</code>
+</pre>
+```
+
+And finally, `additionalClasses="additional-class"` or `additionalClasses=["additional-class"]`, will generate
+
+```html
+<h1>Example</h1>
+<div data-remark-code-title class="additional-class" data-language="js">
+  example.js
+</div>
+<pre>
+  <code>console.log("Hello World");</code>
+</pre>
+```
+
+Note that if an array of multiple strings is provided, like `additionalClasses=["additional-class1", "additional-class2"]`, the result is
+
+```html
+<h1>Example</h1>
+<div
+  data-remark-code-title
+  class="additional-class1 additional-class2"
+  data-language="js"
+>
+  example.js
+</div>
+<pre>
+  <code>console.log("Hello World");</code>
+</pre>
+```
