@@ -39,6 +39,7 @@
   "devDependencies": {
     "@types/mdast": "^3.0.10",
     "remark": "^14.0.2",
+    "remark-html": "^14.0.0",
     "tsup": "^6.5.0",
     "typescript": "^4.9.3",
     "unified": "^10.1.2",
